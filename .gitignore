@@ -1,0 +1,37 @@
+# ---- Datasets & caches (NOT pushed; download instructions in README) ----
+data/
+
+# ---- Paper / writing (excluded from public code repo) ----
+paper/
+literature_review/
+
+# ---- Local agent / editor state ----
+.claude/
+.vscode/
+.idea/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ---- Virtual environments ----
+.venv/
+venv/
+env/
+ENV/
+
+# ---- Secrets ----
+.env
+*.key
+ANTHROPIC_API_KEY*
+
+# ---- OS noise ----
+.DS_Store
+Thumbs.db

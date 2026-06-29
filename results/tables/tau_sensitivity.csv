@@ -1,0 +1,4 @@
+tau,auc_rf,auc_lr,auc_single,pct_large_cord,saving_rf_cord,saving_single_cord,pct_large_sroie,saving_rf_sroie,saving_single_sroie
+0.01,0.757,0.682,0.484,65.0,38.2,24.9,39.8,39.3,8.6
+0.02,0.748,0.662,0.463,59.0,36.1,25.7,39.8,40.2,7.7
+0.05,0.771,0.653,0.44,51.0,37.7,21.5,39.8,41.6,7.9

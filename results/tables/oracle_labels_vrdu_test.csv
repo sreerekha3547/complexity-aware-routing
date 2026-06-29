@@ -1,0 +1,301 @@
+doc_id,split,f1_small,f1_large,gap,cost_small,cost_large,cached,tier_label
+19681001_VisitDenmark_Amendment_Amendment,test,0.6,0.6667,0.0667,0.002295,0.01242,True,large-required
+"19730405_Austrian Tourist Office, Inc._Amendment_Amendment",test,0.4444,0.5714,0.127,0.003037,0.016825,True,large-required
+"19691101_Italian Government Tourist Board, New York_Amendment_Amendment",test,0.6667,0.8571,0.1905,0.002392,0.01102,True,large-required
+19670301_Japan National Tourism Organization_Amendment_Amendment,test,0.6667,0.6667,0.0,0.00301,0.01651,True,small-sufficient
+19741203_Arab Information Center_Amendment_Amendment,test,0.7273,0.7273,0.0,0.002465,0.01235,True,small-sufficient
+"19650301_JETRO, New York_Amendment_Amendment",test,0.6,0.6,0.0,0.003067,0.017495,True,small-sufficient
+19640701_VisitBritain_Amendment_Amendment,test,0.6,0.6,0.0,0.002693,0.01444,True,small-sufficient
+19730301_Bermuda Tourism Authority_Amendment_Amendment,test,0.3636,0.6,0.2364,0.002581,0.01234,True,large-required
+19720601_Monaco Government Tourist Office_Amendment_Amendment,test,0.6667,0.8,0.1333,0.002027,0.0097,True,large-required
+19741101_Cayman Islands Department of Tourism_Amendment_Amendment,test,0.7273,0.8,0.0727,0.002656,0.01338,True,large-required
+"19680601_Italian Government Travel Office, Chicago_Amendment_Amendment",test,0.5714,0.6667,0.0952,0.002301,0.011315,True,large-required
+"19650501_Italian Government Tourist Board, New York_Amendment_Amendment",test,0.2,0.25,0.05,0.003229,0.01636,True,large-required
+19711201_Tourism Australia_Amendment_Amendment,test,0.7273,0.8,0.0727,0.002518,0.01225,True,large-required
+19631101_Tourism Australia_Amendment_Amendment,test,0.9091,0.9091,0.0,0.002934,0.017035,True,small-sufficient
+19710401_Netherlands Board of Tourism and Conventions (NBTC)_Amendment_Amendment,test,0.25,0.25,0.0,0.002354,0.011885,True,small-sufficient
+"19670901_JETRO, San Francisco_Amendment_Amendment",test,0.7273,0.7273,0.0,0.002916,0.015645,True,small-sufficient
+19671103_Arab Information Center_Amendment_Amendment,test,0.6667,0.6667,0.0,0.003051,0.016705,True,small-sufficient
+19630401_Arab Information Center_Amendment_Amendment,test,0.5,0.5,0.0,0.003236,0.01904,True,small-sufficient
+"19671011_Austrian Tourist Office, Inc._Amendment_Amendment",test,0.4,0.5,0.1,0.002615,0.012945,True,large-required
+19720801_Netherlands Board of Tourism and Conventions (NBTC)_Amendment_Amendment,test,0.6,0.6,0.0,0.002384,0.012305,True,small-sufficient
+"19800501_Jamaica Tourist Board, Florida_Amendment_Amendment",test,0.75,0.75,0.0,0.002278,0.01171,True,small-sufficient
+19750815_Moroccan National Tourist Office_Amendment_Amendment,test,0.6667,0.5,-0.1667,0.002086,0.012275,True,small-sufficient
+19770501_KOTRA_Amendment_Amendment,test,0.6,0.75,0.15,0.003806,0.021535,True,large-required
+"19760701_Tourism Authority of Thailand, New York_Amendment_Amendment",test,0.8,0.8,0.0,0.002607,0.013955,True,small-sufficient
+"19791101_Hong Kong Trade Development Council, Inc._Amendment_Amendment",test,0.8,0.8889,0.0889,0.00241,0.01178,True,large-required
+"19800101_Italian Government Travel Office, Chicago_Amendment_Amendment",test,0.6667,0.75,0.0833,0.002561,0.013815,True,large-required
+19781101_VisitDenmark_Amendment_Amendment,test,0.8,0.8,0.0,0.001967,0.009835,True,small-sufficient
+19750801_Netherlands Board of Tourism and Conventions (NBTC)_Amendment_Amendment,test,0.8889,0.8889,0.0,0.002334,0.0123,True,small-sufficient
+19781201_Cayman Islands Department of Tourism_Amendment_Amendment,test,0.5455,0.6,0.0545,0.003022,0.01627,True,large-required
+"19760201_Italian Government Tourist Board (ENIT), Los Angeles_Amendment_Amendment",test,0.0,0.0,0.0,0.00325,0.01908,True,small-sufficient
+"19800801_Italian Government Travel Office, Chicago_Amendment_Amendment",test,0.5,0.6667,0.1667,0.002495,0.012865,True,large-required
+"19770401_World Zionist Organization - American Section, Inc._Amendment_Amendment",test,0.6667,0.5,-0.1667,0.002946,0.016285,True,small-sufficient
+"19760301_Italian Government Tourist Board, New York_Amendment_Amendment",test,0.2,0.5455,0.3455,0.002419,0.01375,True,large-required
+19790101_Representative of the Turkish Republic of Northern Cyprus_Amendment_Amendment,test,0.5455,0.6,0.0545,0.002872,0.01456,True,large-required
+19800301_Hong Kong Tourism Board_Amendment_Amendment,test,0.5,1.0,0.5,0.002384,0.01108,True,large-required
+19770101_Representative of the Turkish Republic of Northern Cyprus_Amendment_Amendment,test,1.0,0.8,-0.2,0.002879,0.01573,True,small-sufficient
+19790301_Aruba Tourism Authority_Amendment_Amendment,test,0.8,0.6,-0.2,0.002374,0.01212,True,small-sufficient
+19790301_Cayman Islands Department of Tourism_Amendment_Amendment,test,0.8,0.8889,0.0889,0.002701,0.0124,True,large-required
+19790501_IDA Ireland_Amendment_Amendment,test,0.4444,0.5714,0.127,0.002879,0.01418,True,large-required
+"19801001_Arnold _ Porter Kaye Scholer, LLP_Amendment_Amendment",test,0.6667,0.6667,0.0,0.002465,0.01475,True,small-sufficient
+"19810601_Arnold _ Porter Kaye Scholer, LLP_Amendment_Amendment",test,0.7273,0.9091,0.1818,0.002648,0.013805,True,large-required
+19811201_Monaco Government Tourist Office_Amendment_Amendment,test,0.8,0.8889,0.0889,0.00277,0.01447,True,large-required
+19820401_Bermuda Tourism Authority_Amendment_Amendment,test,0.7273,0.7273,0.0,0.002649,0.01375,True,small-sufficient
+19820801_St. Lucia Tourist Board_Amendment_Amendment,test,0.8,0.8,0.0,0.002369,0.012175,True,small-sufficient
+19830401_Bermuda Tourism Authority_Amendment_Amendment,test,0.8,0.8,0.0,0.002408,0.012225,True,small-sufficient
+19841001_Cayman Islands Department of Tourism_Amendment_Amendment,test,0.6667,0.5,-0.1667,0.002361,0.011135,True,small-sufficient
+19810201_Tourism Australia_Amendment_Amendment,test,0.75,0.6667,-0.0833,0.002198,0.0124,True,small-sufficient
+19840701_Monaco Government Tourist Office_Amendment_Amendment,test,0.9091,0.7273,-0.1818,0.002544,0.012845,True,small-sufficient
+19830601_Hong Kong Tourism Board_Amendment_Amendment,test,0.6667,0.8571,0.1905,0.002393,0.01092,True,large-required
+"19850306_Daniel J. Edelman, Inc._Amendment_Amendment",test,0.2222,0.3333,0.1111,0.002237,0.010835,True,large-required
+"19850701_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.3636,0.3636,0.0,0.003604,0.01983,True,small-sufficient
+19830101_British Virgin Islands Tourist Board_Amendment_Amendment,test,0.4444,0.5,0.0556,0.002432,0.011705,True,large-required
+19821101_Aruba Tourism Authority_Amendment_Amendment,test,0.5714,0.8571,0.2857,0.002096,0.01092,True,large-required
+"19861201_Arnold _ Porter Kaye Scholer, LLP_Amendment_Amendment",test,0.6667,0.8889,0.2222,0.002353,0.01193,True,large-required
+19850801_St. Lucia Tourist Board_Amendment_Amendment,test,0.6,0.8,0.2,0.002222,0.012475,True,large-required
+19850301_Quebec Government Office_Amendment_Amendment,test,0.6667,0.6667,0.0,0.00244,0.012435,True,small-sufficient
+"19840401_Garvey, Schubert _ Barer_Amendment_Amendment",test,0.5455,0.5455,0.0,0.002795,0.014825,True,small-sufficient
+19850601_IDA Ireland_Amendment_Amendment,test,0.6,0.75,0.15,0.002623,0.014185,True,large-required
+"19860801_Arnold _ Porter Kaye Scholer, LLP_Amendment_Amendment",test,0.6667,0.6667,0.0,0.00238,0.01198,True,small-sufficient
+"19830501_Hong Kong Trade Development Council, Inc._Amendment_Amendment",test,0.6667,0.8889,0.2222,0.002419,0.012545,True,large-required
+"19880301_Arnold _ Porter Kaye Scholer, LLP_Amendment_Amendment",test,0.6667,0.6667,0.0,0.002458,0.01277,False,small-sufficient
+19930901_Hogan Lovells US LLP_Amendment_Amendment,test,0.8,0.8,0.0,0.002661,0.014325,False,small-sufficient
+"19930601_NHK Cosmomedia America, Inc._Amendment_Amendment",test,0.8,0.8,0.0,0.002774,0.01469,False,small-sufficient
+"19901201_CMGRP, Inc._Amendment_Amendment",test,0.7273,0.8,0.0727,0.002859,0.01498,False,large-required
+"19920601_JETRO, San Francisco_Amendment_Amendment",test,0.5714,0.5714,0.0,0.002575,0.013695,False,small-sufficient
+"19871001_Akin, Gump, Strauss, Hauer _ Feld, LLP_Amendment_Amendment",test,0.6,0.5455,-0.0545,0.002588,0.01409,False,small-sufficient
+19900901_British Virgin Islands Tourist Board_Amendment_Amendment,test,0.5,0.8,0.3,0.002757,0.013115,False,large-required
+19880401_Holland _ Knight_Amendment_Amendment,test,0.4444,0.4444,0.0,0.002494,0.0129,False,small-sufficient
+19880901_China Daily Distribution Corporation_Amendment_Amendment,test,0.7273,0.7273,0.0,0.002795,0.0146,False,small-sufficient
+"19920401_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.7273,0.7273,0.0,0.002604,0.01237,False,small-sufficient
+"19940201_Hill and Knowlton Strategies, LLC_Amendment_Amendment",test,0.8,0.8,0.0,0.002525,0.01294,False,small-sufficient
+"19901101_Crowell _ Moring International, Ltd._Amendment_Amendment",test,0.3636,0.3636,0.0,0.003007,0.016135,False,small-sufficient
+"19940801_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.5,0.5,0.0,0.002843,0.014765,False,small-sufficient
+"19900801_Arnold _ Porter Kaye Scholer, LLP_Amendment_Amendment",test,0.6667,0.6,-0.0667,0.002721,0.01533,False,small-sufficient
+"19890501_Akin, Gump, Strauss, Hauer _ Feld, LLP_Amendment_Amendment",test,0.5455,0.6,0.0545,0.002662,0.012825,False,large-required
+19910318_Moroccan National Tourist Office_Amendment_Amendment,test,0.5455,0.5455,0.0,0.002989,0.016635,False,small-sufficient
+19870601_DLA Piper US LLP_Amendment_Amendment,test,0.4444,0.5714,0.127,0.002846,0.01398,False,large-required
+"19920201_Sidley Austin, LLP_Amendment_Amendment",test,0.5,0.5714,0.0714,0.002724,0.01413,False,large-required
+"19910801_Sidley Austin, LLP_Amendment_Amendment",test,0.5,0.5,0.0,0.00252,0.01332,False,small-sufficient
+"19911101_Akin, Gump, Strauss, Hauer _ Feld, LLP_Amendment_Amendment",test,0.7273,0.9091,0.1818,0.002783,0.01415,False,large-required
+19950929_Hogan Lovells US LLP_Amendment_Amendment,test,0.5714,0.5714,0.0,0.002631,0.01424,False,small-sufficient
+19980220_KOTRA_Amendment_Amendment,test,0.75,0.8571,0.1071,0.00279,0.014775,False,large-required
+"19950619_Arnold _ Porter Kaye Scholer, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002744,0.01488,False,small-sufficient
+"19961119_Sidley Austin, LLP_Amendment_Amendment",test,0.6667,0.75,0.0833,0.002366,0.01142,False,large-required
+20010126_Bermuda Tourism Authority_Amendment_Amendment,test,0.75,0.75,0.0,0.002631,0.014485,False,small-sufficient
+"19981230_Crowell _ Moring International, Ltd._Amendment_Amendment",test,0.25,0.5714,0.3214,0.002617,0.014545,False,large-required
+"20010409_International Registries, Inc._Amendment_Amendment",test,0.5,0.4444,-0.0556,0.002639,0.01499,False,small-sufficient
+19960613_Hogan Lovells US LLP_Amendment_Amendment,test,0.4444,0.5,0.0556,0.002949,0.015335,False,large-required
+"19960122_Arnold _ Porter Kaye Scholer, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002699,0.014305,False,small-sufficient
+"19990211_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.9091,0.9091,0.0,0.003175,0.01764,False,small-sufficient
+"20011016_Pillsbury Winthrop Shaw Pittman, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002971,0.016415,False,small-sufficient
+19961018_DLA Piper US LLP_Amendment_Amendment,test,0.4444,0.6667,0.2222,0.003149,0.017235,False,large-required
+"20000114_Hill and Knowlton Strategies, LLC_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002746,0.014975,False,small-sufficient
+"20010820_Arnold _ Porter Kaye Scholer, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002799,0.01546,False,small-sufficient
+19971105_Representative of the Turkish Republic of Northern Cyprus_Amendment_Amendment,test,0.4444,0.4444,0.0,0.002362,0.01205,False,small-sufficient
+"19990716_Foley Hoag, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002632,0.015415,False,small-sufficient
+20020227_Holland _ Knight_Amendment_Amendment,test,0.8889,0.8889,0.0,0.002814,0.015255,False,small-sufficient
+"20030714_Arnold _ Porter Kaye Scholer, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002799,0.015365,False,small-sufficient
+"19990820_Foley Hoag, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002773,0.014625,False,small-sufficient
+"20020611_CMGRP, Inc._Amendment_Amendment",test,1.0,1.0,0.0,0.002555,0.013825,False,small-sufficient
+20030110_Representative of the Turkish Republic of Northern Cyprus_Amendment_Amendment,test,1.0,0.8889,-0.1111,0.00262,0.015095,False,small-sufficient
+"20030523_Arnold _ Porter Kaye Scholer, LLP_Amendment_Amendment",test,0.8,0.8889,0.0889,0.002682,0.015255,False,large-required
+"20031030_Sidley Austin, LLP_Amendment_Amendment",test,1.0,1.0,0.0,0.002548,0.015055,False,small-sufficient
+20020403_Representative of the Turkish Republic of Northern Cyprus_Amendment_Amendment,test,1.0,1.0,0.0,0.002627,0.01439,False,small-sufficient
+"20001121_Daniel J. Edelman, Inc._Amendment_Amendment",test,0.6667,0.6667,0.0,0.002802,0.015425,False,small-sufficient
+"20000905_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.75,0.75,0.0,0.002608,0.01435,False,small-sufficient
+"20020417_Foley Hoag, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002981,0.016225,False,small-sufficient
+20040126_Bermuda Tourism Authority_Amendment_Amendment,test,1.0,1.0,0.0,0.002691,0.014985,False,small-sufficient
+"20040113_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.7273,0.9091,0.1818,0.003003,0.016095,False,large-required
+"20040203_Arnold _ Porter Kaye Scholer, LLP_Amendment_Amendment",test,1.0,1.0,0.0,0.002589,0.01422,False,small-sufficient
+20040930_Hogan Lovells US LLP_Amendment_Amendment,test,0.8889,0.8889,0.0,0.002841,0.015505,False,small-sufficient
+"20040423_Arnold _ Porter Kaye Scholer, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.00276,0.01505,False,small-sufficient
+"20050210_Alston _ Bird, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002768,0.015085,False,small-sufficient
+"20050217_MSLGROUP Americas, Inc._Amendment_Amendment",test,0.6667,0.6667,0.0,0.002783,0.01505,False,small-sufficient
+"20021204_JWI, LLC_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002818,0.015735,False,small-sufficient
+"20050628_JWI, LLC_Amendment_Amendment",test,0.6667,0.6667,0.0,0.003015,0.017015,False,small-sufficient
+"20070207_Glover Park Group, LLC_Amendment_Amendment",test,1.0,1.0,0.0,0.002543,0.0138,False,small-sufficient
+20060127_Hogan Lovells US LLP_Amendment_Amendment,test,0.8889,0.8889,0.0,0.002819,0.015495,False,small-sufficient
+"20050909_Glover Park Group, LLC_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002717,0.01475,False,small-sufficient
+"20070322_Glover Park Group, LLC_Amendment_Amendment",test,0.8889,0.8889,0.0,0.00268,0.01482,False,small-sufficient
+"20051129_Alston _ Bird, LLP_Amendment_Amendment",test,1.0,0.8889,-0.1111,0.002377,0.015575,False,small-sufficient
+"20040107_Alston _ Bird, LLP_Amendment_Amendment",test,0.8,0.8889,0.0889,0.003329,0.01966,False,large-required
+20050930_Hogan Lovells US LLP_Amendment_Amendment,test,0.8889,0.8889,0.0,0.003066,0.01679,False,small-sufficient
+20070216_Singapore Economic Development Board_Amendment_Amendment,test,0.75,0.8889,0.1389,0.002708,0.015555,False,large-required
+"20070404_Van Scoyoc Associates, Inc._Amendment_Amendment",test,0.5,0.5,0.0,0.003461,0.018905,False,small-sufficient
+"20070530_Glover Park Group, LLC_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002732,0.014845,False,small-sufficient
+"20071030_Sidley Austin, LLP_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.002724,0.014525,False,small-sufficient
+"20070731_Sidley Austin, LLP_Amendment_Amendment",test,0.6667,0.6667,0.0,0.002853,0.01564,False,small-sufficient
+"20071219_BGR Government Affairs, LLC_Amendment_Amendment",test,0.9091,0.9091,0.0,0.003001,0.016485,False,small-sufficient
+20080331_Hogan Lovells US LLP_Amendment_Amendment,test,0.8889,0.8889,0.0,0.002905,0.015675,False,small-sufficient
+19970815_Bermuda Tourism Authority_Amendment_Amendment,test,0.6667,0.6667,0.0,0.002423,0.01338,False,small-sufficient
+"20080401_Glover Park Group, LLC_Amendment_Amendment",test,0.8889,0.8889,0.0,0.00304,0.017065,False,small-sufficient
+"20070613_Pillsbury Winthrop Shaw Pittman, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002789,0.015325,False,small-sufficient
+"20081015_Czech Center, New York_Amendment_Amendment",test,0.8,0.8,0.0,0.003076,0.01726,False,small-sufficient
+20100113_FCB New York_Amendment_Amendment,test,0.8889,0.8889,0.0,0.00282,0.015375,False,small-sufficient
+"20081001_Garvey, Schubert _ Barer_Amendment_Amendment",test,0.6667,0.8889,0.2222,0.002945,0.01601,False,large-required
+20090804_FCB New York_Amendment_Amendment,test,0.75,0.75,0.0,0.002806,0.0154,False,small-sufficient
+"20090803_Picard Kentz _ Rowe, LLP_Amendment_Amendment",test,1.0,1.0,0.0,0.002782,0.0152,False,small-sufficient
+"20110307_Podesta Group, Inc._Amendment_Amendment",test,1.0,0.8889,-0.1111,0.002598,0.015655,False,small-sufficient
+"20090331_Japan National Tourism Organization, Los Angeles _Amendment_Amendment",test,0.5,1.0,0.5,0.002728,0.015655,False,large-required
+"20090930_Garvey, Schubert _ Barer_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002915,0.016055,False,small-sufficient
+20110103_Representative of the Turkish Republic of Northern Cyprus_Amendment_Amendment,test,0.5455,0.5455,0.0,0.003051,0.016935,False,small-sufficient
+20081231_Orion Strategies LLC_Amendment_Amendment,test,0.8889,0.8889,0.0,0.002841,0.015555,False,small-sufficient
+"20100709_NHK Cosmomedia America, Inc._Amendment_Amendment",test,0.8889,0.8889,0.0,0.003575,0.02053,False,small-sufficient
+"20110201_Harbour Group, LLC_Amendment_Amendment",test,1.0,1.0,0.0,0.003125,0.01776,False,small-sufficient
+"20090409_Public Strategies Washington, Inc._Amendment_Amendment",test,0.8889,0.8889,0.0,0.003118,0.0175,False,small-sufficient
+"20110912_Picard Kentz _ Rowe, LLP_Amendment_Amendment",test,0.8889,1.0,0.1111,0.002803,0.0158,False,large-required
+20110527_Monaco Government Tourist Office_Amendment_Amendment,test,0.8889,0.8889,0.0,0.003003,0.016765,False,small-sufficient
+"20100818_JETRO, Los Angeles_Amendment_Amendment",test,0.9091,0.7273,-0.1818,0.003081,0.016775,False,small-sufficient
+"20081021_JETRO, San Francisco_Amendment_Amendment",test,1.0,1.0,0.0,0.002622,0.015205,False,small-sufficient
+"20110317_Daniel J. Edelman, Inc._Amendment_Amendment",test,0.8889,0.8889,0.0,0.002879,0.015755,False,small-sufficient
+20110323_Fratelli Group_Amendment_Amendment,test,0.8889,0.8889,0.0,0.002946,0.016225,False,small-sufficient
+"20111130_Independent Diplomat, Inc._Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.003147,0.01786,False,small-sufficient
+"20120207_Akin, Gump, Strauss, Hauer _ Feld, LLP_Amendment_Amendment",test,0.75,0.8889,0.1389,0.002905,0.016945,False,large-required
+"20120424_Pillsbury Winthrop Shaw Pittman, LLP_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.003081,0.01734,False,small-sufficient
+"20121031_Foley Hoag, LLP_Amendment_Amendment",test,0.75,0.6667,-0.0833,0.002919,0.01718,False,small-sufficient
+"20121108_Sorini, Samet _ Associates, LLC_Amendment_Amendment",test,1.0,1.0,0.0,0.002839,0.01557,False,small-sufficient
+20120628_DLA Piper US LLP_Amendment_Amendment,test,0.6,0.8889,0.2889,0.002822,0.0161,False,large-required
+"20111222_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.003115,0.017285,False,small-sufficient
+"20120430_Chadwick, Kirsten A.-Fierce, Isakowitz, _ Blalock_Amendment_Amendment",test,0.75,0.75,0.0,0.00284,0.0157,False,small-sufficient
+"20120504_Podesta Group, Inc._Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.002986,0.01643,False,small-sufficient
+"20121221_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.003022,0.01664,False,small-sufficient
+"20120924_Podesta Group, Inc._Amendment_Amendment",test,0.6667,0.6667,0.0,0.002993,0.01644,False,small-sufficient
+"20111005_Myrmidon Group, LLC_Amendment_Amendment",test,0.6667,0.6667,0.0,0.003043,0.01685,False,small-sufficient
+"20120604_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.8,0.8889,0.0889,0.003161,0.01662,False,large-required
+"20130408_Independent Diplomat, Inc._Amendment_Amendment",test,0.5,0.75,0.25,0.002659,0.015905,False,large-required
+"20130404_Podesta Group, Inc._Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.002802,0.016835,False,small-sufficient
+"20130123_Glover Park Group, LLC_Amendment_Amendment",test,0.8889,0.8889,0.0,0.003059,0.01722,False,small-sufficient
+20130520_Hogan Lovells US LLP_Amendment_Amendment,test,0.6667,0.6667,0.0,0.003091,0.017055,False,small-sufficient
+"20130815_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.6667,0.8889,0.2222,0.003014,0.016465,False,large-required
+"20130131_Sidley Austin, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.003042,0.01686,False,small-sufficient
+"20130128_CDN International, Inc._Amendment_Amendment",test,0.8889,0.8889,0.0,0.003149,0.017785,False,small-sufficient
+"20140324_Nelson Mullins Riley _ Scarborough, LLP_Amendment_Amendment",test,1.0,1.0,0.0,0.002789,0.01549,False,small-sufficient
+"20121210_MSLGROUP Americas, Inc._Amendment_Amendment",test,0.5,0.5,0.0,0.002985,0.016415,False,small-sufficient
+20131112_Fratelli Group_Amendment_Amendment,test,0.8889,0.6667,-0.2222,0.003015,0.01668,False,small-sufficient
+"20140606_Daniel J. Edelman, Inc._Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.002973,0.016205,False,small-sufficient
+20140430_Pearson _ Associates_Amendment_Amendment,test,1.0,1.0,0.0,0.003088,0.01739,False,small-sufficient
+"20140520_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.8,0.8,0.0,0.003074,0.016875,False,small-sufficient
+"20131127_Independent Diplomat, Inc._Amendment_Amendment",test,0.8,0.6,-0.2,0.002986,0.01653,False,small-sufficient
+"20090325_Ryberg and Smith, LLC_Amendment_Amendment",test,1.0,0.8889,-0.1111,0.002682,0.01548,False,small-sufficient
+"20140618_Hecht, Latham, Spencer _ Associates, Inc._Amendment_Amendment",test,0.75,0.75,0.0,0.002861,0.015955,False,small-sufficient
+"20140807_Podesta Group, Inc._Amendment_Amendment",test,0.6667,0.6667,0.0,0.002973,0.016305,False,small-sufficient
+20140814_Beltway Government Strategies Inc._Amendment_Amendment,test,1.0,1.0,0.0,0.002834,0.01573,False,small-sufficient
+20140813_Fratelli Group_Amendment_Amendment,test,0.6667,0.6667,0.0,0.003029,0.016755,False,small-sufficient
+"20150113_Arnold _ Porter Kaye Scholer, LLP_Amendment_Amendment",test,0.4444,0.8889,0.4444,0.003013,0.016875,False,large-required
+"20150109_Harbour Group, LLC_Amendment_Amendment",test,0.5714,0.8571,0.2857,0.002786,0.01534,False,large-required
+"20150105_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.6667,0.6667,0.0,0.003085,0.01716,False,small-sufficient
+"20140414_Greenberg Traurig, LLP_Amendment_Amendment",test,0.8,0.6667,-0.1333,0.002994,0.01734,False,small-sufficient
+"20150126_Levick Strategic Communications, LP_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.002995,0.01662,False,small-sufficient
+20150130_Malaysian Palm Oil Council (f-k-a American Palm Oil Council)_Amendment_Amendment,test,0.8889,0.8889,0.0,0.002999,0.01649,False,small-sufficient
+"20150126_Pillsbury Winthrop Shaw Pittman, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.003072,0.01705,False,small-sufficient
+"20140530_Venable, LLP_Amendment_Amendment",test,0.2,0.2,0.0,0.003232,0.019335,False,small-sufficient
+"20150311_Hecht, Latham, Spencer _ Associates, Inc._Amendment_Amendment",test,0.5,0.75,0.25,0.002845,0.015825,False,large-required
+"20150530_Parvin, C. Landon_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.002696,0.015665,False,small-sufficient
+"20150203_Burson-Marsteller, LLC (Miami Office)_Amendment_Amendment",test,0.6667,0.6667,0.0,0.003137,0.01718,False,small-sufficient
+"20150325_Finn Partners, Inc._Amendment_Amendment",test,0.6,0.6667,0.0667,0.00285,0.0163,False,large-required
+"20150910_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.8,0.8889,0.0889,0.00294,0.01707,False,large-required
+"20150403_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.8,0.6667,-0.1333,0.002924,0.016715,False,small-sufficient
+"20150925_Gallagher Group, LLC_Amendment_Amendment",test,0.8889,0.8889,0.0,0.003014,0.01658,False,small-sufficient
+"20150601_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.003043,0.016645,False,small-sufficient
+"20141208_Levick Strategic Communications, LP_Amendment_Amendment",test,0.8,0.6667,-0.1333,0.003089,0.016385,False,small-sufficient
+"20150731_Greenberg Traurig, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.003405,0.017955,False,small-sufficient
+"20150415_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.003119,0.017595,False,small-sufficient
+"20160122_Podesta Group, Inc._Amendment_Amendment",test,0.4444,0.4444,0.0,0.003033,0.01686,False,small-sufficient
+"20150623_Daniel J. Edelman, Inc._Amendment_Amendment",test,0.6667,0.6667,0.0,0.003491,0.020075,False,small-sufficient
+"20151116_Pillsbury Winthrop Shaw Pittman, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.003033,0.016945,False,small-sufficient
+20151007_Hogan Lovells US LLP_Amendment_Amendment,test,0.6667,0.8889,0.2222,0.00309,0.01724,False,large-required
+"20160202_Glover Park Group, LLC_Amendment_Amendment",test,0.6667,0.6667,0.0,0.002843,0.01588,False,small-sufficient
+20151007_Holland _ Knight_Amendment_Amendment,test,0.8889,0.8889,0.0,0.00301,0.017055,False,small-sufficient
+20160112_Malaysian Palm Oil Council (f-k-a American Palm Oil Council)_Amendment_Amendment,test,0.75,0.6667,-0.0833,0.003047,0.018615,False,small-sufficient
+20150513_Fratelli Group_Amendment_Amendment,test,0.6667,0.6667,0.0,0.003024,0.01669,False,small-sufficient
+"20160301_Lou Hammond _ Associates, Inc._Amendment_Amendment",test,0.6,0.6667,0.0667,0.002859,0.01675,False,large-required
+"20151208_Friends of Sinn Fein, Inc._Amendment_Amendment",test,1.0,1.0,0.0,0.002903,0.016105,False,small-sufficient
+20160520_Hogan Lovells US LLP_Amendment_Amendment,test,0.8889,0.6667,-0.2222,0.003055,0.01679,False,small-sufficient
+"20160406_Rokk Solutions, LLC_Amendment_Amendment",test,1.0,0.8333,-0.1667,0.003466,0.0196,False,small-sufficient
+"20160324_Podesta Group, Inc._Amendment_Amendment",test,0.6667,0.6667,0.0,0.002997,0.01661,False,small-sufficient
+"20160425_Pillsbury Winthrop Shaw Pittman, LLP_Amendment_Amendment",test,0.6667,0.6667,0.0,0.003042,0.01702,False,small-sufficient
+"20160727_Gallagher Group, LLC_Amendment_Amendment",test,0.6667,0.6667,0.0,0.003004,0.016525,False,small-sufficient
+"20160809_Picard Kentz _ Rowe, LLP_Amendment_Amendment",test,0.5,0.5,0.0,0.002865,0.01586,False,small-sufficient
+"20160527_Nelson Mullins Riley _ Scarborough, LLP_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.003041,0.01675,False,small-sufficient
+20160823_Holland _ Knight_Amendment_Amendment,test,0.8,0.8889,0.0889,0.002901,0.01686,False,large-required
+"20170118_Husch Blackwell, LLP_Amendment_Amendment",test,0.5,0.8571,0.3571,0.003087,0.01668,False,large-required
+20160531_DLA Piper US LLP_Amendment_Amendment,test,0.8889,0.8889,0.0,0.003308,0.019515,False,small-sufficient
+"20150724_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.8,0.8889,0.0889,0.003082,0.01749,False,large-required
+"20161122_Pillsbury Winthrop Shaw Pittman, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.003089,0.01747,False,small-sufficient
+20160720_Dickens _ Madson Canada Inc._Amendment_Amendment,test,0.75,1.0,0.25,0.002849,0.01567,False,large-required
+"20161117_Glover Park Group, LLC_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.002972,0.01632,False,small-sufficient
+"20170119_Podesta Group, Inc._Amendment_Amendment",test,0.6667,0.6667,0.0,0.002976,0.01658,False,small-sufficient
+"20161115_Akin, Gump, Strauss, Hauer _ Feld, LLP_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.003024,0.016565,False,small-sufficient
+"20160912_Sidley Austin, LLP_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.003015,0.016605,False,small-sufficient
+"20160318_Alston _ Bird, LLP_Amendment_Amendment",test,1.0,0.75,-0.25,0.002812,0.01546,False,small-sufficient
+"20170125_Podesta Group, Inc._Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.003006,0.016785,False,small-sufficient
+"20170302_Daniel J. Edelman, Inc._Amendment_Amendment",test,0.75,0.6667,-0.0833,0.002804,0.01611,False,small-sufficient
+"20170120_Picard Kentz _ Rowe, LLP_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.002972,0.016365,False,small-sufficient
+"20170224_Alston _ Bird, LLP_Amendment_Amendment",test,0.6667,0.8889,0.2222,0.002985,0.01653,False,large-required
+"20170208_Fleishman-Hillard, Inc._Amendment_Amendment",test,0.9091,0.7273,-0.1818,0.003433,0.01931,False,small-sufficient
+20170313_Cornerstone Government Affairs_Amendment_Amendment,test,0.6667,0.8889,0.2222,0.002999,0.01667,False,large-required
+"20170315_Podesta Group, Inc._Amendment_Amendment",test,0.6667,0.6667,0.0,0.002771,0.016505,False,small-sufficient
+"20170309_Mercury Public Affairs, LLC_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.002888,0.015825,False,small-sufficient
+"20170209_Pillsbury Winthrop Shaw Pittman, LLP_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.002924,0.016785,False,small-sufficient
+"20170504_Sorini, Samet _ Associates, LLC_Amendment_Amendment",test,0.8889,0.8889,0.0,0.003066,0.01733,False,small-sufficient
+"20170613_Pillsbury Winthrop Shaw Pittman, LLP_Amendment_Amendment",test,0.6667,0.8889,0.2222,0.003068,0.01699,False,large-required
+20170614_Mer Security and Communication Systems Ltd._Amendment_Amendment,test,0.6667,0.6667,0.0,0.003016,0.016915,False,small-sufficient
+"20170503_Sorini, Samet _ Associates, LLC_Amendment_Amendment",test,0.6,0.6667,0.0667,0.003355,0.018385,False,large-required
+"20170523_Glover Park Group, LLC_Amendment_Amendment",test,0.8889,0.8889,0.0,0.00301,0.016935,False,small-sufficient
+"20170426_Barnes _ Thornburg, LLP_Amendment_Amendment",test,0.6,0.6667,0.0667,0.002934,0.016765,False,large-required
+20170317_Fratelli Group_Amendment_Amendment,test,0.4444,0.4444,0.0,0.002947,0.01631,False,small-sufficient
+"20170306_Friends of Sinn Fein, Inc._Amendment_Amendment",test,0.3636,0.3636,0.0,0.003158,0.01739,False,small-sufficient
+"20170516_Nelson Mullins Riley _ Scarborough, LLP_Amendment_Amendment",test,0.5714,0.5,-0.0714,0.002843,0.01671,False,small-sufficient
+"20170801_Overseas Korean Cultural Heritage Foundation, USA_Amendment_Amendment",test,0.6667,0.6667,0.0,0.002996,0.01688,False,small-sufficient
+"20170606_Harbour Group, LLC_Amendment_Amendment",test,0.75,0.75,0.0,0.002794,0.01554,False,small-sufficient
+"20170720_Burke, Martha Ann_Amendment_Amendment",test,0.4,0.8,0.4,0.003178,0.017915,False,large-required
+"20170901_Bryan Cave, LLP_Amendment_Amendment",test,1.0,1.0,0.0,0.002809,0.01678,False,small-sufficient
+"20170815_Pillsbury Winthrop Shaw Pittman, LLP_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.003005,0.01656,False,small-sufficient
+20170630_CGCN Group_Amendment_Amendment,test,1.0,1.0,0.0,0.002835,0.0157,False,small-sufficient
+"20170807_Japan National Tourism Organization, Los Angeles _Amendment_Amendment",test,0.5714,0.5714,0.0,0.002785,0.01547,False,small-sufficient
+"20170901_Western Hemisphere Strategies, LLC_Amendment_Amendment",test,0.6667,0.8,0.1333,0.002746,0.0147,False,large-required
+20171031_Prime Policy Group_Amendment_Amendment,test,1.0,0.6667,-0.3333,0.002844,0.016285,False,small-sufficient
+"20170828_Karv Communications, Inc._Amendment_Amendment",test,0.5,0.75,0.25,0.002774,0.01525,False,large-required
+"20170821_Nelson Mullins Riley _ Scarborough, LLP_Amendment_Amendment",test,0.6,0.6667,0.0667,0.003164,0.01714,False,large-required
+"20171002_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.003064,0.016775,False,small-sufficient
+"20171109_Akin, Gump, Strauss, Hauer _ Feld, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.003065,0.01679,False,small-sufficient
+"20171003_Sonoran Policy Group, LLC_Amendment_Amendment",test,1.0,1.0,0.0,0.00285,0.016,False,small-sufficient
+"20171011_MSLGROUP Americas, Inc._Amendment_Amendment",test,1.0,1.0,0.0,0.00324,0.018905,False,small-sufficient
+"20171116_Wiley Rein, LLP_Amendment_Amendment",test,0.75,0.75,0.0,0.003388,0.019415,False,small-sufficient
+"20171106_Potomac International Partners, Inc._Amendment_Amendment",test,0.5,0.4444,-0.0556,0.003527,0.020735,False,small-sufficient
+"20171006_Brownstein Hyatt Farber Schreck, LLP_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.003113,0.0176,False,small-sufficient
+"20170626_Mercury Public Affairs, LLC_Amendment_Amendment",test,0.6667,0.8889,0.2222,0.003053,0.01708,False,large-required
+"20180124_Nickles Group, LLC_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002766,0.01635,False,small-sufficient
+"20171114_Squire Patton Boggs, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.003133,0.01718,False,small-sufficient
+"20171205_Arnold, Jim_Amendment_Amendment",test,1.0,1.0,0.0,0.003056,0.017455,False,small-sufficient
+"20180125_International Trade _ Development Agency, Inc._Amendment_Amendment",test,1.0,1.0,0.0,0.002974,0.016165,False,small-sufficient
+"20180214_Sonoran Policy Group, LLC_Amendment_Amendment",test,1.0,1.0,0.0,0.002854,0.015975,False,small-sufficient
+"20171221_Stonington Strategies, LLC_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.002971,0.016465,False,small-sufficient
+"20180123_Fleishman-Hillard, Inc._Amendment_Amendment",test,0.7273,0.7273,0.0,0.003487,0.019795,False,small-sufficient
+"20180222_Bolton-St. Johns, LLC_Amendment_Amendment",test,0.6667,0.4444,-0.2222,0.003058,0.01696,False,small-sufficient
+"20180213_Yorktown Solutions, LLC_Amendment_Amendment",test,0.6667,0.6667,0.0,0.002929,0.017235,False,small-sufficient
+"20180309_Park Strategies, LLC_Amendment_Amendment",test,0.6667,0.75,0.0833,0.002787,0.015895,False,large-required
+"20180323_Mayer Brown, LLP_Amendment_Amendment",test,0.75,1.0,0.25,0.002936,0.016415,False,large-required
+20180417_Alignment Government Strategies_Amendment_Amendment,test,0.8,0.6667,-0.1333,0.002915,0.01666,False,small-sufficient
+"20180110_Information Management Services, Inc._Amendment_Amendment",test,0.8889,1.0,0.1111,0.00274,0.01559,False,large-required
+20180302_Fratelli Group_Amendment_Amendment,test,0.6667,0.6667,0.0,0.003,0.01659,False,small-sufficient
+"20180228_Fleishman-Hillard, Inc._Amendment_Amendment",test,0.4444,0.4444,0.0,0.003259,0.01817,False,small-sufficient
+"20180122_Glover Park Group, LLC_Amendment_Amendment",test,0.8889,0.8889,0.0,0.002932,0.016235,False,small-sufficient
+"20180430_Public Strategies Washington, Inc._Amendment_Amendment",test,0.6667,0.6667,0.0,0.003054,0.01683,False,small-sufficient
+"20180323_Nelson Mullins Riley _ Scarborough, LLP_Amendment_Amendment",test,0.5714,0.5,-0.0714,0.002843,0.01661,False,small-sufficient
+"20180105_Hill and Knowlton Strategies, LLC_Amendment_Amendment",test,0.7273,0.5455,-0.1818,0.0032,0.017865,False,small-sufficient
+"20180221_Brownstein Hyatt Farber Schreck, LLP_Amendment_Amendment",test,0.5,0.5,0.0,0.003079,0.017435,False,small-sufficient
+"20180508_Sorini, Samet _ Associates, LLC_Amendment_Amendment",test,1.0,0.75,-0.25,0.002845,0.015795,False,small-sufficient
+"20180503_Pillsbury Winthrop Shaw Pittman, LLP_Amendment_Amendment",test,0.8889,0.8889,0.0,0.003078,0.01705,False,small-sufficient
+"20180514_theGroup DC, LLC_Amendment_Amendment",test,0.8889,0.6667,-0.2222,0.003028,0.016665,False,small-sufficient
+"20180601_Parvin, C. Landon_Amendment_Amendment",test,0.5,0.4444,-0.0556,0.002756,0.01559,False,small-sufficient
+"20180402_Hagir Elawad _ Associates, LLC_Amendment_Amendment",test,1.0,0.6667,-0.3333,0.002917,0.0168,False,small-sufficient
+20180521_Hogan Lovells US LLP_Amendment_Amendment,test,0.8889,0.6667,-0.2222,0.003022,0.016595,False,small-sufficient
+20180503_VisitBritain_Amendment_Amendment,test,0.6,0.6667,0.0667,0.003139,0.016645,False,large-required
+20180613_Ballard Partners_Amendment_Amendment,test,0.8889,0.8889,0.0,0.002933,0.01612,False,small-sufficient
+"20180511_Avenue Strategies Global, LLC_Amendment_Amendment",test,1.0,0.7273,-0.2727,0.002763,0.017095,False,small-sufficient
+20180712_Representative of the Turkish Republic of Northern Cyprus_Amendment_Amendment,test,0.5455,0.3636,-0.1818,0.003379,0.01926,False,small-sufficient
+20180702_Definers Corp._Amendment_Amendment,test,0.4444,0.4444,0.0,0.003165,0.01772,False,small-sufficient
+20180629_Mer Security and Communication Systems Ltd._Amendment_Amendment,test,0.5455,0.5455,0.0,0.003172,0.0173,False,small-sufficient

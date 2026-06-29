@@ -1,0 +1,17 @@
+# Extraction model tiers. Prices are USD per 1M tokens (Anthropic published pricing).
+tiers:
+  small:
+    model_id: "claude-haiku-4-5-20251001"
+    price_in: 1.0
+    price_out: 5.0
+  large:
+    model_id: "claude-opus-4-8"
+    price_in: 5.0
+    price_out: 25.0
+
+extraction:
+  max_tokens: 4096
+
+# Oracle labeling: a doc is "large-required" if F1(large) - F1(small) > tau.
+oracle:
+  tau: 0.02

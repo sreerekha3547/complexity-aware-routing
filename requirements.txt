@@ -1,0 +1,21 @@
+# Core scientific stack
+numpy
+pandas
+scikit-learn
+
+# Document processing
+pillow          # image loading / quality features
+pytesseract     # OCR (requires the Tesseract binary on PATH)
+pymupdf         # PDF -> image rendering for VRDU (no Poppler needed)
+
+# LLM extraction
+anthropic       # Claude Haiku / Opus extraction tiers
+
+# Visualization
+matplotlib      # Pareto frontiers, gap histograms
+
+# Config
+pyyaml          # reads configs/model_config.yaml
+
+# Testing
+pytest

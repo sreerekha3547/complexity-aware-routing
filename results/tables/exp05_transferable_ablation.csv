@@ -1,0 +1,9 @@
+setting,feature_set,n_features,eval,n_docs,pct_large,auc
+crossdomain,full(16),16,cord,100,59.0,0.686
+crossdomain,full(16),16,sroie,347,39.8,0.769
+crossdomain,full(16),16,vrdu,300,26.0,0.522
+crossdomain,transferable(12),12,cord,100,59.0,0.653
+crossdomain,transferable(12),12,sroie,347,39.8,0.762
+crossdomain,transferable(12),12,vrdu,300,26.0,0.581
+indomain,full(16),16,vrdu,300,26.0,0.648
+indomain,transferable(12),12,vrdu,300,26.0,0.652

@@ -1,3 +1,3 @@
 dataset,t_star_train,saving_nopeek,saving_frontier,test_f1,frac_large,within_delta
-cord,0.62,40.7,36.1,0.4515,49.0,False
-sroie,0.35,47.2,40.2,0.8264,40.1,False
+cord,0.6,33.4,33.4,0.4574,56.0,True
+sroie,0.27,44.5,31.0,0.8718,43.5,False

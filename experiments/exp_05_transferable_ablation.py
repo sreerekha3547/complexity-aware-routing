@@ -8,7 +8,7 @@ compute to a constant. Two of them are the top-2 routing predictors on
 CORD/SROIE.
 
 A constant feature is *inert for ranking* -- it cannot change AUC on the set
-where it is constant -- so the near-random VRDU AUC (0.522) is already driven
+where it is constant -- so the near-random VRDU AUC (0.415 full / 0.562 transf.) is driven
 only by the transferable features. This experiment proves that explicitly, two
 ways, so the negative control does not rest on an assumption:
 
@@ -210,7 +210,7 @@ def main() -> int:
     print("  Reading: the full-feature cross-domain AUC is depressed by trained-in")
     print("  reliance on label features absent on VRDU; the fair transferable")
     print("  number and the in-domain number show a WEAK but non-zero routable")
-    print("  signal. Combined with the tiny mean gap (0.005), VRDU is a")
+    print("  signal. Combined with the tiny mean gap (0.017), VRDU is a")
     print("  low-headroom domain -- not pure noise: practical routing benefit is")
     print("  minimal and the router correctly declines to escalate.")
     return 0

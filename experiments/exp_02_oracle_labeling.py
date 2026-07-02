@@ -89,20 +89,30 @@ _SCHEMAS = {
 
 
 def _process_doc(doc, small: SmallModel, large: LargeModel, schema: dict) -> dict:
-    """Run both tiers on one doc and return a result row. Thread-safe."""
+    """Run both tiers on one doc and return a result row. Thread-safe.
+
+    F1 is scored with the field-type canonical matcher (the headline
+    f1_small/f1_large/gap), and with the strict exact-match scorer alongside
+    (f1_small_strict/... ) for the strict-vs-canonical transparency comparison.
+    """
     rs = small.extract(doc, schema=schema)
     rl = large.extract(doc, schema=schema)
-    fs = evaluate({"fields": rs.fields}, doc).f1
+    fs = evaluate({"fields": rs.fields}, doc).f1                       # canonical
     fl = evaluate({"fields": rl.fields}, doc).f1
+    fs_s = evaluate({"fields": rs.fields}, doc, canonical=False).f1    # strict
+    fl_s = evaluate({"fields": rl.fields}, doc, canonical=False).f1
     return {
-        "doc_id"    : doc.doc_id,
-        "split"     : doc.split,
-        "f1_small"  : round(fs, 4),
-        "f1_large"  : round(fl, 4),
-        "gap"       : round(fl - fs, 4),
-        "cost_small": round(rs.cost_usd, 6),
-        "cost_large": round(rl.cost_usd, 6),
-        "cached"    : rs.cached and rl.cached,
+        "doc_id"        : doc.doc_id,
+        "split"         : doc.split,
+        "f1_small"      : round(fs, 4),
+        "f1_large"      : round(fl, 4),
+        "gap"           : round(fl - fs, 4),
+        "f1_small_strict": round(fs_s, 4),
+        "f1_large_strict": round(fl_s, 4),
+        "gap_strict"    : round(fl_s - fs_s, 4),
+        "cost_small"    : round(rs.cost_usd, 6),
+        "cost_large"    : round(rl.cost_usd, 6),
+        "cached"        : rs.cached and rl.cached,
     }
 
 

@@ -81,7 +81,7 @@ def load_raw_data() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     enough routing signal to train a meaningful classifier.
 
     VRDU is evaluated separately (held-out generalization test) using the
-    model trained on CORD+SROIE. Its near-zero mean gap (0.005) and different
+    model trained on CORD+SROIE. Its near-zero mean gap (0.017) and different
     feature distribution would dilute the joint classifier if included in
     training.
     """

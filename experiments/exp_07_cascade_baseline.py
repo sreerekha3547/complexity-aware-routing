@@ -66,43 +66,57 @@ def best_saving(df: pd.DataFrame, cost_col: str, al_cost: float,
             round(best_t, 2) if best_t is not None else None)
 
 
+def oracle_savings(df: pd.DataFrame, al_cost: float) -> tuple[float, float]:
+    """Savings when escalation is the perfect oracle label (best possible trigger).
+
+    Returns (oracle_single_route, oracle_cascade). The oracle cascade is the best
+    physically possible confidence cascade: it escalates exactly the documents
+    that need the large model, yet still pays the cheap tier on every document.
+    """
+    route = df["label"] == 1
+    single = (1 - np.where(route, df["cost_large"], df["cost_small"]).mean() / al_cost) * 100
+    cascade = (1 - (df["cost_small"] + np.where(route, df["cost_large"], 0)).mean() / al_cost) * 100
+    return round(single, 1), round(cascade, 1)
+
+
 def main() -> int:
-    print("EXP-07: Cascade baseline\n")
+    print("EXP-07: Cascade baseline (with oracle upper bound)\n")
     if not PRED.exists():
         print(f"ERROR: {PRED} not found -- run exp_03 first.")
         return 1
     df = pd.read_csv(PRED)
 
     rows = []
-    print(f"{'dataset':8} {'router save':>11} {'cascade save':>13} "
-          f"{'always-small floor':>19}")
-    print("-" * 56)
+    print(f"{'dataset':8} {'RF route':>9} {'RF cascade':>11} "
+          f"{'oracle cascade':>15} {'oracle route':>13}")
+    print("-" * 60)
     for ds in df["dataset"].unique():
         sub = df[df["dataset"] == ds]
         al_cost = sub["cost_large"].mean()
         al_qual = sub["f1_large"].mean()
-        as_cost = sub["cost_small"].mean()
-        # always-small floor for a cascade, expressed as saving vs always-large
-        floor_saving = (1 - as_cost / al_cost) * 100
 
         router_s, _  = best_saving(sub, "single",  al_cost, al_qual)
         cascade_s, _ = best_saving(sub, "cascade", al_cost, al_qual)
+        orc_route, orc_cascade = oracle_savings(sub, al_cost)
 
         rows.append({"dataset": ds, "router_saving": router_s,
                      "cascade_saving": cascade_s,
-                     "cascade_floor_saving": round(floor_saving, 1)})
+                     "oracle_cascade_saving": orc_cascade,
+                     "oracle_route_saving": orc_route,
+                     "cascade_floor_saving": round((1 - sub["cost_small"].mean() / al_cost) * 100, 1)})
         cs = f"{cascade_s:.0f}%" if cascade_s is not None else "none"
-        print(f"{ds:8} {router_s:>10.0f}% {cs:>13} {floor_saving:>18.0f}%")
+        print(f"{ds:8} {router_s:>8.0f}% {cs:>11} {orc_cascade:>14.0f}% {orc_route:>12.0f}%")
 
     out = pd.DataFrame(rows)
     out.to_csv(TABLE_DIR / "exp07_cascade_baseline.csv", index=False)
     print(f"\n  -> {TABLE_DIR}/exp07_cascade_baseline.csv")
     print("\nVERDICT")
-    print("  router_saving = pay exactly one tier (ours).")
-    print("  cascade_saving = pay cheap tier on every doc + expensive on escalated.")
-    print("  The cascade can never beat the always-small cost floor, and pays an")
-    print("  extra cheap-inference cost on every escalated document; pre-inference")
-    print("  routing avoids that speculative call entirely.")
+    print("  RF route    = pre-inference routing, pay exactly one tier (ours).")
+    print("  RF cascade  = same signal, but pay cheap tier every doc + large on escalated.")
+    print("  oracle cascade = BEST possible cascade (perfect trigger) -- still pays the")
+    print("    speculative cheap call. Where we beat it (frequent escalation), no")
+    print("    output-confidence cascade can win. (Anthropic exposes no token logprobs,")
+    print("    so the textbook logprob cascade is not implementable here regardless.)")
     return 0
 
 

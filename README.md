@@ -6,10 +6,13 @@ Hard documents go to the strong model; easy ones to the cheap model — cutting 
 without materially degrading accuracy.
 
 > **TL;DR results.** At a quality tolerance of ≤2 F1 points from always-large, the
-> complexity-aware router saves **40% on SROIE** and **36% on CORD**, versus 8% and
-> 26% for a single-feature OCR-confidence baseline. The full router scores
-> **ROC-AUC 0.748** vs 0.463 for OCR-confidence alone (**+0.285**), showing that
-> layout and content complexity carry routing signal far beyond scan quality.
+> complexity-aware router saves **31% on SROIE** and **33% on CORD** at a pooled
+> **ROC-AUC of 0.706**, a stable **+0.077** over a logistic-regression baseline on
+> the same features. It generalizes across two model pairs — Haiku/Opus (5×) and
+> Haiku/Sonnet (3×) — and, on a low-headroom out-of-domain set (VRDU legal forms),
+> declines to escalate rather than fabricating savings. F1 is scored with a
+> field-type **canonical** matcher (money→numeric, date→date-component, text→exact);
+> the strict exact-match scorer is reported alongside for transparency.
 
 ---
 
@@ -28,34 +31,56 @@ signal lives in the document, not the request.
 
 ## Key results
 
-**Routing discrimination** (pooled held-out test, N=447, τ=0.02):
+**Routing discrimination** (pooled held-out test, N=447, τ=0.02; 95% CI over 2000 bootstraps):
 
 | Router | ROC-AUC |
 |---|---|
-| Calibrated random forest (ours) | **0.748** |
-| Logistic regression | 0.662 |
-| Single feature (`ocr_conf`) | 0.463 |
-| **Gain (RF − single feature)** | **+0.285** |
+| Calibrated random forest (ours) | **0.706** [0.655, 0.757] |
+| Logistic regression | 0.629 |
+| Single feature (`ocr_conf`) | 0.551 |
+| **Gain (RF − logistic regression)** | **+0.077** |
+| Gain (RF − single feature) | +0.155 |
+
+The meaningful contribution is the **+0.077 over logistic regression** — the complexity
+features beat a *linear* read of them. (Under the canonical scorer `ocr_conf` is no
+longer anti-predictive, so the gain over it is smaller and less informative than the
+strict-scorer figure once was.)
 
 **Cost savings** at quality within 2 F1 points of always-large (τ=0.02):
 
 | Dataset | Full model | Single-feature | Oracle bound |
 |---|---|---|---|
-| CORD | **36%** | 26% | 32% |
-| SROIE | **40%** | 8% | 48% |
+| CORD | **33%** | 27% | 32% |
+| SROIE | **31%** | 16% | 56% |
 
-**Oracle gap** — does a routable difficulty gap even exist?
+**Cross-pair generalization** — same 16 features, router refit per pair:
+
+| Model pair | Cost ratio | Pooled AUC | CORD save | SROIE save |
+|---|---|---|---|---|
+| Haiku 4.5 / Opus 4.8 | 5× | 0.706 | 33% | 31% |
+| Haiku 4.5 / Sonnet 4.6 | 3× | 0.761 | 31% | 55% |
+
+The RF-over-logistic-regression margin is stable across both pairs (+0.077, +0.083),
+so it's the complexity features — not the specific model pair — carrying the signal.
+
+**Oracle gap** — does a routable difficulty gap even exist? (canonical scorer)
 
 | Dataset | F1 small | F1 large | Mean gap | Large-required |
 |---|---|---|---|---|
-| CORD | 0.392 | 0.472 | +0.079 | 59% |
-| SROIE | 0.766 | 0.853 | +0.087 | 40% |
-| VRDU | 0.738 | 0.743 | +0.005 | 26% |
+| CORD | 0.395 | 0.473 | +0.077 | 58% |
+| SROIE | 0.828 | 0.896 | +0.068 | 30% |
+| VRDU | 0.790 | 0.807 | +0.017 | 23% |
 
 **VRDU is a negative control**: a held-out legal-forms domain the router never trains
-on, where both tiers are near-identical (mean gap 0.005). The router correctly
+on, where both tiers are near-identical (mean gap 0.017). The router correctly
 *declines to escalate* (routes 0% to large) instead of fabricating savings — evidence
 it responds to genuine difficulty, not noise.
+
+**Cascades** — pre-inference routing beats confidence cascades structurally: it pays for
+exactly one tier, while a cascade always pays the cheap tier plus escalation. It beats a
+same-signal cascade on both datasets and beats even an *oracle* cascade on CORD (33% vs
+20%), where escalation is frequent. And the textbook logprob-triggered cascade isn't
+implementable here at all — the Anthropic Messages API exposes no token logprobs.
 
 All numbers above are reproduced by the scripts in `experiments/` and stored as CSVs
 in `results/tables/`.
@@ -140,9 +165,11 @@ strictly greater — so reported reductions are conservative.)
 
 ## Reproducing the pipeline
 
-Scripts are numbered in run order: three core stages, then six analyses. Only
-**EXP-02 (oracle labeling) makes API calls** — everything else is local,
-deterministic, and free.
+Scripts are numbered in run order: three core stages, then analyses. **EXP-02
+(oracle labeling), EXP-10 (de-noise pilot), and EXP-12 (second model pair) make
+API calls** — everything else is local, deterministic, and free. EXP-02 scores
+each tier with the field-type **canonical** matcher (headline `f1_*`) and the
+strict exact-match scorer (`f1_*_strict`) side by side.
 
 ```bash
 # 1. Pre-inference features for every document (OCR + image + layout + content)
@@ -153,23 +180,32 @@ python experiments/exp_02_oracle_labeling.py --dataset cord  --split train
 python experiments/exp_02_oracle_labeling.py --dataset cord  --split test
 python experiments/exp_02_oracle_labeling.py --dataset sroie --split train
 python experiments/exp_02_oracle_labeling.py --dataset sroie --split test
+python experiments/exp_02_oracle_labeling.py --dataset vrdu  --split train
 python experiments/exp_02_oracle_labeling.py --dataset vrdu  --split test
 
 # 3. Train the router, sweep thresholds, build Pareto frontiers + savings tables
 python experiments/exp_03_routing_model.py
 
 # 4-9. Analyses (all local, no API): gap histograms, transferable-feature ablation,
-#      threshold transfer, cascade comparison, significance/CIs, feature ablation
+#      threshold transfer, cascade comparison (+ oracle upper bound), CIs, feature ablation
 python experiments/exp_04_gap_histogram.py
 python experiments/exp_05_transferable_ablation.py
 python experiments/exp_06_threshold_transfer.py
 python experiments/exp_07_cascade_baseline.py
 python experiments/exp_08_significance.py
 python experiments/exp_09_feature_ablation.py
+
+# 10. De-noise pilot: re-extract boundary docs k times to measure decoding
+#     variance + oracle-label flip rate near tau  (API calls — pilot ~$8)
+python experiments/exp_10_denoise.py --pilot 80 --control 20
+
+# 12. Second model pair (Haiku vs Sonnet 4.6, 3x ratio): cross-pair generalization.
+#     Reuses the cached Haiku tier; only Sonnet is new  (API calls — ~$14)
+python experiments/exp_12_second_pair.py
 ```
 
 Extraction responses are cached per `(tier, dataset, split, doc_id)`, so re-runs of
-EXP-02 are free.
+the API stages are free.
 
 ## Tests
 
@@ -184,11 +220,14 @@ pytest tests/        # 28 unit tests: loaders, features, evaluation, baselines
 | File | Contents |
 |---|---|
 | `results/tables/feature_table.csv` | 16 features per document, all datasets/splits |
-| `results/tables/oracle_labels_*.csv` | Per-doc F1(small), F1(large), gap, tier label |
+| `results/tables/oracle_labels_*.csv` | Per-doc canonical F1(small/large)+gap+tier label, and `*_strict` columns |
 | `results/tables/routing_predictions.csv` | Per-doc router probabilities (τ=0.02) |
 | `results/tables/tau_sensitivity.csv` | AUC + savings across τ ∈ {0.01, 0.02, 0.05} |
-| `results/tables/exp0{5..9}_*.csv` | Ablations, threshold transfer, cascade, significance |
-| `results/figures/exp03_pareto_*.png` | Quality–cost Pareto frontiers |
+| `results/tables/exp0{5..9}_*.csv` | Ablations, threshold transfer, cascade (+oracle bound), CIs |
+| `results/tables/denoise_results.csv` | Per-doc decoding-variance + oracle-label flip rate (EXP-10 pilot) |
+| `results/tables_pair2/*.csv` | Second-pair (Haiku/Sonnet) oracle labels, predictions, τ-sensitivity |
+| `results/figures/exp03_pareto_*.png` | Quality–cost Pareto frontiers (primary pair) |
+| `results/figures_pair2/exp03_pareto_*.png` | Pareto frontiers (Haiku/Sonnet pair) |
 | `results/figures/exp04_gap_histogram*.png` | Per-document gap distributions |
 
 ---

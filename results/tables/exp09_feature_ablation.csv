@@ -1,6 +1,6 @@
 feature_set,n_features,pooled_auc
-OCR quality,5,0.646
-Image quality,3,0.591
-Layout,4,0.709
-Content,4,0.666
-All,16,0.748
+OCR quality,5,0.659
+Image quality,3,0.571
+Layout,4,0.679
+Content,4,0.679
+All,16,0.706

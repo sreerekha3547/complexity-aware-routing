@@ -1,23 +1,34 @@
 """Field-level extraction metrics + error-type buckets.
 
 Extraction quality is scored as field-level precision / recall / F1 over a
-**multiset of (label, value) pairs**. This handles repeated fields naturally
+multiset of ``(label, value)`` pairs. This handles repeated fields naturally
 (a receipt with three ``menu.nm`` values is three items in the multiset) and
 works across datasets with different schemas.
 
-Values are normalized before comparison (lowercase, collapse whitespace, drop
-punctuation except decimal points) — "normalized exact match", which is the
-defensible default for numeric receipt fields.
+Value matching is **field-type canonical** by default:
+  - money / numeric / code fields : equal if both parse to the same number
+    after stripping currency tokens and thousands separators. Handles
+    ``"RM 110.00" == "110.00" == "110"`` and ``"18,000" == "18000"``.
+  - date fields (label contains "date") : equal if every gold date-number is
+    present in the prediction (handles ``"23/2/2018 20:04:08"`` as a superset
+    of ``"23/2/2018"``). A genuinely wrong day/month/year fails.
+  - text fields (company, address, names) : normalized exact match.
 
-The error buckets answer the user's question about *why* F1 drops:
+The stricter, exact-match scorer is still available via ``canonical=False`` for
+the strict-vs-canonical transparency comparison (both are reported in EXP-02).
+Rationale: exact-match manufactures penalties when a model formats a
+semantically correct value differently (currency prefix, appended timestamp,
+thousands separator), which contaminates the F1-gap routing signal.
+
+The error buckets answer *why* F1 drops:
   - missed_fields    : a label present in ground truth, absent from prediction (recall failure)
-  - wrong_values     : label present in both, but the value(s) differ          (key-value mapping error)
+  - wrong_values     : label present in both, but no value matches            (key-value mapping error)
   - spurious_fields  : a label predicted that isn't in ground truth            (precision failure)
 """
 from __future__ import annotations
 
 import re
-from collections import Counter
+from collections import defaultdict
 from dataclasses import dataclass
 
 from src.data.base_loader import Document
@@ -36,18 +47,55 @@ def normalize_value(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+# -- field-type canonical matching ----------------------------------------------
+_CURRENCY = {"rm", "usd", "myr", "sgd", "rp", "idr", "$"}
+
+
+def _as_number(s: str):
+    """Return float if the (normalized) string is a pure number after stripping
+    currency tokens and inter-digit spaces (thousands separators), else None."""
+    toks = [t for t in s.split() if t not in _CURRENCY]
+    joined = "".join(toks)  # collapse "1 234.00" -> "1234.00"
+    if not joined:
+        return None
+    try:
+        return float(joined)
+    except ValueError:
+        return None
+
+
+def _date_nums(s: str) -> set[str]:
+    return set(re.findall(r"\d+", s))
+
+
+def canonical_match(label: str, gold_v: str, pred_v: str) -> bool:
+    """Field-type-aware equivalence on already-normalized values."""
+    if gold_v == pred_v:
+        return True
+    if "date" in label.lower():
+        gn, pn = _date_nums(gold_v), _date_nums(pred_v)
+        return bool(gn) and gn <= pn  # every gold date-number present in pred
+    ng, npv = _as_number(gold_v), _as_number(pred_v)
+    if ng is not None and npv is not None:
+        return abs(ng - npv) < 1e-6
+    return False
+
+
+def _match(label: str, gold_v: str, pred_v: str, canonical: bool) -> bool:
+    return canonical_match(label, gold_v, pred_v) if canonical else gold_v == pred_v
+
+
 # -- ground-truth / prediction -> (label, value) pairs --------------------------
 def document_to_pairs(doc: Document) -> list[Pair]:
     """Build the ground-truth (label, value) multiset from a Document.
 
-    - SROIE: doc-level ``fields`` dict (4 fields, one value each).
+    - SROIE / VRDU: doc-level ``fields`` dict (one value each).
     - CORD / FUNSD: words grouped by (group_id, label), tokens joined in
       reading order to form each field value.
     """
     if doc.fields:
         return [(k, normalize_value(v)) for k, v in doc.fields.items() if v]
 
-    # group words by (group_id, label); join tokens left-to-right, top-to-bottom
     buckets: dict[tuple, list] = {}
     for w in doc.words:
         if w.label is None:
@@ -95,7 +143,7 @@ class Score:
     n_pred: int
     n_gold: int
     missed_fields: int       # labels in gold, absent from pred (recall failure)
-    wrong_values: int        # labels in both, value sets differ (mapping error)
+    wrong_values: int        # labels in both, no value matches (mapping error)
     spurious_fields: int     # labels in pred, absent from gold (precision failure)
 
     def as_dict(self) -> dict:
@@ -112,36 +160,48 @@ class Score:
         }
 
 
-def score_pairs(pred: list[Pair], gold: list[Pair]) -> Score:
-    """Multiset precision / recall / F1 over (label, value) pairs, with buckets."""
-    pred_ms, gold_ms = Counter(pred), Counter(gold)
+def score_pairs(pred: list[Pair], gold: list[Pair], canonical: bool = True) -> Score:
+    """Multiset precision / recall / F1 over (label, value) pairs, with buckets.
 
-    tp = sum((pred_ms & gold_ms).values())  # multiset intersection
-    n_pred, n_gold = sum(pred_ms.values()), sum(gold_ms.values())
+    Matching is field-type canonical by default; pass ``canonical=False`` for
+    strict normalized-exact-match (the pre-fix behavior).
+    """
+    gold_by: dict[str, list] = defaultdict(list)
+    pred_by: dict[str, list] = defaultdict(list)
+    for l, v in gold:
+        gold_by[l].append(v)
+    for l, v in pred:
+        pred_by[l].append(v)
 
+    tp = 0
+    for label, gvs in gold_by.items():
+        pvs = pred_by.get(label, [])
+        used = [False] * len(pvs)
+        for gv in gvs:
+            for i, pv in enumerate(pvs):
+                if not used[i] and _match(label, gv, pv, canonical):
+                    used[i] = True
+                    tp += 1
+                    break
+
+    n_pred, n_gold = len(pred), len(gold)
     precision = tp / n_pred if n_pred else 0.0
     recall = tp / n_gold if n_gold else 0.0
     f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) else 0.0
 
     # label-level buckets
-    pred_labels = {l for l, _ in pred}
-    gold_by_label: dict[str, set] = {}
-    pred_by_label: dict[str, set] = {}
-    for l, v in gold:
-        gold_by_label.setdefault(l, set()).add(v)
-    for l, v in pred:
-        pred_by_label.setdefault(l, set()).add(v)
-
-    missed = sum(1 for l in gold_by_label if l not in pred_labels)
+    missed = sum(1 for l in gold_by if l not in pred_by)
     wrong = sum(
-        1 for l, gv in gold_by_label.items()
-        if l in pred_by_label and not (gv & pred_by_label[l])
+        1 for l, gvs in gold_by.items()
+        if l in pred_by and not any(_match(l, gv, pv, canonical)
+                                    for gv in gvs for pv in pred_by[l])
     )
-    spurious = sum(1 for l in pred_by_label if l not in gold_by_label)
+    spurious = sum(1 for l in pred_by if l not in gold_by)
 
     return Score(precision, recall, f1, tp, n_pred, n_gold, missed, wrong, spurious)
 
 
-def evaluate(prediction: dict | list, doc: Document) -> Score:
+def evaluate(prediction: dict | list, doc: Document, canonical: bool = True) -> Score:
     """Score a model prediction against a Document's ground truth."""
-    return score_pairs(prediction_to_pairs(prediction), document_to_pairs(doc))
+    return score_pairs(prediction_to_pairs(prediction), document_to_pairs(doc),
+                       canonical=canonical)

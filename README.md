@@ -2,14 +2,14 @@
 
 Route each document to a **cheap** or **expensive** extraction model *before* running
 any extraction, based on interpretable, document-intrinsic complexity features.
-Hard documents go to the strong model; easy ones to the cheap model — cutting cost
+Hard documents go to the strong model; easy ones to the cheap model, cutting cost
 without materially degrading accuracy.
 
 > **TL;DR results.** At a quality tolerance of ≤2 F1 points from always-large, the
 > complexity-aware router saves **31% on SROIE** and **33% on CORD** at a pooled
 > **ROC-AUC of 0.706**, a stable **+0.077** over a logistic-regression baseline on
-> the same features. It generalizes across two model pairs — Haiku/Opus (5×) and
-> Haiku/Sonnet (3×) — and, on a low-headroom out-of-domain set (VRDU legal forms),
+> the same features. It generalizes across two model pairs, Haiku/Opus (5×) and
+> Haiku/Sonnet (3×). On a low-headroom out-of-domain set (VRDU legal forms), it
 > declines to escalate rather than fabricating savings. F1 is scored with a
 > field-type **canonical** matcher (money→numeric, date→date-component, text→exact);
 > the strict exact-match scorer is reported alongside for transparency.
@@ -19,12 +19,12 @@ without materially degrading accuracy.
 ## Why this is different
 
 Most cost-saving methods are **cascades**: they run the cheap model first, look at
-its output, then decide whether to retry with the expensive model — paying for a
+its output, then decide whether to retry with the expensive model, paying for a
 speculative cheap call on *every* document. We decide **pre-inference**, from the
 document alone, and pay for exactly one tier.
 
 The reframing that makes this work: in structured extraction the schema (the
-"query") is fixed and the **document** is what varies in difficulty — so the routing
+"query") is fixed and the **document** is what varies in difficulty, so the routing
 signal lives in the document, not the request.
 
 ---
@@ -41,7 +41,7 @@ signal lives in the document, not the request.
 | **Gain (RF − logistic regression)** | **+0.077** |
 | Gain (RF − single feature) | +0.155 |
 
-The meaningful contribution is the **+0.077 over logistic regression** — the complexity
+The meaningful contribution is the **+0.077 over logistic regression**: the complexity
 features beat a *linear* read of them. (Under the canonical scorer `ocr_conf` is no
 longer anti-predictive, so the gain over it is smaller and less informative than the
 strict-scorer figure once was.)
@@ -53,7 +53,7 @@ strict-scorer figure once was.)
 | CORD | **33%** | 27% | 32% |
 | SROIE | **31%** | 16% | 56% |
 
-**Cross-pair generalization** — same 16 features, router refit per pair:
+**Cross-pair generalization** (same 16 features, router refit per pair):
 
 | Model pair | Cost ratio | Pooled AUC | CORD save | SROIE save |
 |---|---|---|---|---|
@@ -61,9 +61,9 @@ strict-scorer figure once was.)
 | Haiku 4.5 / Sonnet 4.6 | 3× | 0.761 | 31% | 55% |
 
 The RF-over-logistic-regression margin is stable across both pairs (+0.077, +0.083),
-so it's the complexity features — not the specific model pair — carrying the signal.
+so it's the complexity features, not the specific model pair, carrying the signal.
 
-**Oracle gap** — does a routable difficulty gap even exist? (canonical scorer)
+**Oracle gap**: does a routable difficulty gap even exist? (canonical scorer)
 
 | Dataset | F1 small | F1 large | Mean gap | Large-required |
 |---|---|---|---|---|
@@ -73,14 +73,14 @@ so it's the complexity features — not the specific model pair — carrying the
 
 **VRDU is a negative control**: a held-out legal-forms domain the router never trains
 on, where both tiers are near-identical (mean gap 0.017). The router correctly
-*declines to escalate* (routes 0% to large) instead of fabricating savings — evidence
+*declines to escalate* (routes 0% to large) instead of fabricating savings, evidence
 it responds to genuine difficulty, not noise.
 
-**Cascades** — pre-inference routing beats confidence cascades structurally: it pays for
+**Cascades.** Pre-inference routing beats confidence cascades structurally: it pays for
 exactly one tier, while a cascade always pays the cheap tier plus escalation. It beats a
 same-signal cascade on both datasets and beats even an *oracle* cascade on CORD (33% vs
 20%), where escalation is frequent. And the textbook logprob-triggered cascade isn't
-implementable here at all — the Anthropic Messages API exposes no token logprobs.
+implementable here at all: the Anthropic Messages API exposes no token logprobs.
 
 All numbers above are reproduced by the scripts in `experiments/` and stored as CSVs
 in `results/tables/`.
@@ -105,7 +105,7 @@ notebooks/      Exploratory data analysis
 ```
 
 > **Note.** `data/` (the raw datasets, OCR cache, and extraction cache) is **not
-> committed** — the datasets are publicly available (see below) and the caches are
+> committed**: the datasets are publicly available (see below) and the caches are
 > regenerated by running the pipeline.
 
 ---
@@ -127,7 +127,7 @@ attribution unreliable.
 
 ---
 
-## Datasets (not included — download separately)
+## Datasets (not included; download separately)
 
 | Dataset | Domain | Source |
 |---|---|---|
@@ -159,7 +159,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."     # required only for EXP-03 (extraction
 A clean 5× cost ratio. Both tiers use an identical schema-conditioned tool-use prompt
 so F1 differences reflect model capability, not prompting. (Prices are representative,
 normalised values; current list prices imply a larger gap, under which savings are
-strictly greater — so reported reductions are conservative.)
+strictly greater, so reported reductions are conservative.)
 
 ---
 
@@ -167,7 +167,7 @@ strictly greater — so reported reductions are conservative.)
 
 Scripts are numbered in run order: three core stages, then analyses. **EXP-02
 (oracle labeling), EXP-10 (de-noise pilot), and EXP-12 (second model pair) make
-API calls** — everything else is local, deterministic, and free. EXP-02 scores
+API calls**. Everything else is local, deterministic, and free. EXP-02 scores
 each tier with the field-type **canonical** matcher (headline `f1_*`) and the
 strict exact-match scorer (`f1_*_strict`) side by side.
 
@@ -175,7 +175,7 @@ strict exact-match scorer (`f1_*_strict`) side by side.
 # 1. Pre-inference features for every document (OCR + image + layout + content)
 python experiments/exp_01_feature_analysis.py --full --split all
 
-# 2. Oracle labels: run both tiers, score F1, compute the gap  (API calls — costs money)
+# 2. Oracle labels: run both tiers, score F1, compute the gap  (API calls, costs money)
 python experiments/exp_02_oracle_labeling.py --dataset cord  --split train
 python experiments/exp_02_oracle_labeling.py --dataset cord  --split test
 python experiments/exp_02_oracle_labeling.py --dataset sroie --split train
@@ -196,11 +196,11 @@ python experiments/exp_08_significance.py
 python experiments/exp_09_feature_ablation.py
 
 # 10. De-noise pilot: re-extract boundary docs k times to measure decoding
-#     variance + oracle-label flip rate near tau  (API calls — pilot ~$8)
+#     variance + oracle-label flip rate near tau  (API calls, pilot ~$8)
 python experiments/exp_10_denoise.py --pilot 80 --control 20
 
 # 12. Second model pair (Haiku vs Sonnet 4.6, 3x ratio): cross-pair generalization.
-#     Reuses the cached Haiku tier; only Sonnet is new  (API calls — ~$14)
+#     Reuses the cached Haiku tier; only Sonnet is new  (API calls, ~$14)
 python experiments/exp_12_second_pair.py
 ```
 
@@ -235,4 +235,4 @@ pytest tests/        # 28 unit tests: loaders, features, evaluation, baselines
 ## License
 
 Code released under the MIT License (see `LICENSE`). Datasets retain their original
-licenses — see each dataset's source above.
+licenses; see each dataset's source above.

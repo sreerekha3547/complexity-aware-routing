@@ -1,5 +1,6 @@
 # ---- Datasets & caches (NOT pushed; download instructions in README) ----
-data/
+# Anchored to repo root so it does NOT also exclude src/data/ (the loaders).
+/data/
 
 # ---- Paper / writing (excluded from public code repo) ----
 paper/

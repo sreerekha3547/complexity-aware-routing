@@ -5,7 +5,10 @@ from pathlib import Path
 
 from .base_loader import BaseLoader, Document, Word
 from .cord_loader import CordLoader
+from .deepform_loader import DeepformLoader
+from .docile_loader import DocileLoader
 from .funsd_loader import FunsdLoader
+from .poie_loader import PoieLoader
 from .sroie_loader import SroieLoader
 from .vrdu_loader import VrduLoader
 
@@ -15,6 +18,9 @@ _DEFAULT_ROOTS = {
     "sroie": "data/SROIE2019",
     "funsd": "data/FUNSD",
     "vrdu": "data/vrdu/registration-form",
+    "docile": "data/docile",
+    "poie": "data/poie/nfv5/nfv5_3125",
+    "deepform": "data/deepform",
 }
 
 _REGISTRY: dict[str, type[BaseLoader]] = {
@@ -22,6 +28,9 @@ _REGISTRY: dict[str, type[BaseLoader]] = {
     "sroie": SroieLoader,
     "funsd": FunsdLoader,
     "vrdu": VrduLoader,
+    "docile": DocileLoader,
+    "poie": PoieLoader,
+    "deepform": DeepformLoader,
 }
 
 
@@ -41,5 +50,8 @@ __all__ = [
     "SroieLoader",
     "FunsdLoader",
     "VrduLoader",
+    "DocileLoader",
+    "PoieLoader",
+    "DeepformLoader",
     "get_loader",
 ]

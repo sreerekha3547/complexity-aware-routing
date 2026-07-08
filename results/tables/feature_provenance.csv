@@ -1,0 +1,17 @@
+feature,description,literal_input,status
+ocr_conf,OCR confidence (Tesseract),OCR only,router
+ocr_std,std of per-token OCR confidence,OCR only,router
+ocr_stage,preprocessing stage needed to read image,image pipeline only,router
+short_token_ratio,fraction of <=2-char alpha tokens,OCR text only,router
+inv_chars_per_word,1 / mean chars per token,OCR text only,router
+blur_score,variance of image Laplacian,image only,router
+image_contrast,global pixel-intensity contrast,image only,router
+word_height_cv,coeff. of variation of OCR box heights,OCR boxes only,router
+crowded_line_frac,frac. of GEOMETRIC lines with >3 words,OCR boxes only (geometric),router
+line_density,GEOMETRIC lines per 1000px height,OCR boxes only (geometric),router
+item_density,GEOMETRIC groups per word,OCR boxes only (geometric),router
+aspect_ratio,page height / width,image dims only,router
+tokens,total OCR token count,OCR only,router
+section_count,# distinct top-level label prefixes,GROUND-TRUTH ANNOTATIONS,EXCLUDED (leakage)
+label_diversity,# distinct label types,GROUND-TRUTH ANNOTATIONS,EXCLUDED (leakage)
+label_entropy,entropy of label distribution,GROUND-TRUTH ANNOTATIONS,EXCLUDED (leakage)

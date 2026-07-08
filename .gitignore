@@ -36,3 +36,9 @@ ANTHROPIC_API_KEY*
 # ---- OS noise ----
 .DS_Store
 Thumbs.db
+
+# ---- Superseded experiments (kept locally, not pushed) ----
+experiments/archive/
+
+# ---- Raw dataset downloads (1.8GB tar; NOT pushed) ----
+/downloads/

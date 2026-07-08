@@ -1,0 +1,7 @@
+metric,value
+clean_features_auc_pooled,0.73
+text_lsa_auc_pooled,0.764
+features_minus_text,-0.034
+lodo_cord_to_sroie,0.519
+dataset_identity_auc,0.605
+full16_auc,0.731

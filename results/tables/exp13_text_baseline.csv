@@ -1,0 +1,8 @@
+router,auc
+TF-IDF + LR,0.755
+LSA(100) + RF,0.764
+16 features (RF),0.706
+16 features (LR),0.629
+delta feat_RF - LSA(100) + RF,-0.056
+delta 95% CI lo,-0.097
+delta 95% CI hi,-0.016

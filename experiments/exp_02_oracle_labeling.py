@@ -81,10 +81,65 @@ VRDU_SCHEMA = {
     "signer_title"         : "the title or position of the signer",
 }
 
+# DocILE invoices/orders -- KILE key-value fields (line items excluded), the
+# frequent (>=8%) fieldtypes from the annotated-trainval split.
+DOCILE_SCHEMA = {
+    "document_id"              : "the invoice or document number",
+    "date_issue"              : "the date the document was issued",
+    "date_due"                : "the payment due date",
+    "vendor_name"             : "the seller/vendor (issuer) name",
+    "vendor_address"          : "the vendor's full address",
+    "vendor_tax_id"           : "the vendor's tax identification number",
+    "vendor_email"            : "the vendor's email address",
+    "customer_billing_name"   : "the customer/buyer (bill-to) name",
+    "customer_billing_address": "the customer's billing address",
+    "customer_id"             : "the customer account identifier",
+    "customer_order_id"       : "the customer's order number",
+    "order_id"                : "the order or purchase-order number",
+    "amount_total_gross"      : "the total amount including tax",
+    "amount_total_net"        : "the total amount before tax",
+    "amount_total_tax"        : "the total tax amount",
+    "amount_due"              : "the amount due for payment",
+    "amount_paid"             : "the amount already paid",
+    "currency_code_amount_due": "the currency of the amount due",
+    "payment_terms"           : "the payment terms",
+}
+
+# POIE photographed nutrition labels. 21 classes: <NUTRIENT>-<MEASURE>, where
+# nutrient in {CE=calories/energy, TF=total fat, SO=sodium, CAR=carbohydrate,
+# PRO=protein} and measure in {PS=per serving, P1=per 100g/100ml, D=% daily
+# value, PP=per package}; plus SS=serving size.
+POIE_SCHEMA = {
+    "SS"    : "the serving size",
+    "CE-PS" : "calories/energy per serving", "CE-P1": "calories/energy per 100g or 100ml",
+    "CE-D"  : "calories/energy % daily value", "CE-PP": "calories/energy per package",
+    "TF-PS" : "total fat per serving", "TF-P1": "total fat per 100g or 100ml",
+    "TF-D"  : "total fat % daily value", "TF-PP": "total fat per package",
+    "SO-PS" : "sodium per serving", "SO-P1": "sodium per 100g or 100ml",
+    "SO-D"  : "sodium % daily value", "SO-PP": "sodium per package",
+    "CAR-PS": "carbohydrate per serving", "CAR-P1": "carbohydrate per 100g or 100ml",
+    "CAR-D" : "carbohydrate % daily value", "CAR-PP": "carbohydrate per package",
+    "PRO-PS": "protein per serving", "PRO-P1": "protein per 100g or 100ml",
+    "PRO-D" : "protein % daily value", "PRO-PP": "protein per package",
+}
+
+# DeepForm: FCC political ad-buy disclosure forms (degraded scans). The five
+# canonical DeepForm target fields.
+DEEPFORM_SCHEMA = {
+    "advertiser"  : "the advertiser (name of the campaign, committee, or sponsor)",
+    "contract_num": "the contract number (unique transaction identifier)",
+    "flight_from" : "the flight start date (first air date of the ad)",
+    "flight_to"   : "the flight end date (last air date of the ad)",
+    "gross_amount": "the gross amount / total paid for the ad buy",
+}
+
 _SCHEMAS = {
-    "sroie": SROIE_SCHEMA,
-    "cord" : CORD_SCHEMA,
-    "vrdu" : VRDU_SCHEMA,
+    "sroie"   : SROIE_SCHEMA,
+    "cord"    : CORD_SCHEMA,
+    "vrdu"    : VRDU_SCHEMA,
+    "docile"  : DOCILE_SCHEMA,
+    "poie"    : POIE_SCHEMA,
+    "deepform": DEEPFORM_SCHEMA,
 }
 
 

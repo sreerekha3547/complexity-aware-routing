@@ -85,10 +85,12 @@ def extract_signals(doc: Document) -> Signals:
     """Compute raw complexity signals from a normalized Document."""
     words = doc.words
     n_words = max(len(words), 1)
-    groups = doc.groups()
-    if not groups:
-        # SROIE has no group_ids; fall back to y-band line clustering
-        groups = _infer_groups_from_layout(words)
+    # Group words by GEOMETRIC line-clustering on OCR boxes for EVERY dataset.
+    # We deliberately do NOT use doc.groups() (benchmark entity annotations):
+    # those are unavailable pre-inference and would make the layout features
+    # (line_density, item_density, crowded_line_frac) annotation-dependent and
+    # give them inconsistent semantics across datasets.
+    groups = _infer_groups_from_layout(words)
     n_groups = max(len(groups), 1)
 
     # OCR signals -------------------------------------------------------------

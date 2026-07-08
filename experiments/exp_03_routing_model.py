@@ -50,14 +50,22 @@ from sklearn.preprocessing import StandardScaler
 TABLE_DIR = Path("results/tables")
 FIG_DIR   = Path("results/figures")
 
+# 13 genuinely pre-inference features. section_count / label_diversity /
+# label_entropy are EXCLUDED: they are derived from ground-truth field
+# annotations (doc.labels) and are not available before extraction. They remain
+# in feature_table.csv only for the leakage-robustness ablation (EXP-09).
+# crowded_line_frac / line_density / item_density now use geometric OCR-box
+# line-clustering for every dataset (see src/features/complexity_score.py).
 FEATURE_COLS = [
     "ocr_conf", "ocr_std", "ocr_stage",
     "image_contrast", "blur_score",
     "short_token_ratio", "inv_chars_per_word", "word_height_cv",
-    "crowded_line_frac", "line_density", "section_count",
-    "label_diversity", "label_entropy", "item_density", "aspect_ratio",
-    "tokens",
+    "crowded_line_frac", "line_density", "item_density",
+    "aspect_ratio", "tokens",
 ]
+
+# Annotation-derived features, kept for the leakage ablation only (never routed on).
+LEAKY_FEATURE_COLS = ["section_count", "label_diversity", "label_entropy"]
 
 # Pre-registered success criterion: routing quality within 2 absolute F1
 # points of always-large.
